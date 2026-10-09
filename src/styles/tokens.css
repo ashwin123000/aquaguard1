@@ -1,0 +1,122 @@
+/* =============================================================
+   AquaFeed Pond Pilot — Design Tokens
+   All colors, spacing, typography defined here.
+   ============================================================= */
+
+:root {
+  /* Page structure */
+  --color-page-bg: #F7F6F0;
+  --color-card: #FFFFFF;
+  --color-border: #E5E6DE;
+  --color-border-strong: #C9D0C7;
+
+  /* Text */
+  --color-text-primary: #20352C;
+  --color-text-secondary: #506358;
+  --color-text-muted: #718077;
+  --color-text-inverse: #FFFFFF;
+
+  /* Brand */
+  --color-teal: #0B3D2E;
+  --color-teal-hover: #07382C;
+  --color-teal-soft: #DCE9E1;
+  --color-teal-mid: #426D5F;
+
+  /* Status: Healthy */
+  --color-healthy: #426D5F;
+  --color-healthy-bg: #DCE9E1;
+  --color-healthy-border: #ADC6B7;
+
+  /* Status: Amber / Warning */
+  --color-amber: #D99A2B;
+  --color-amber-dark: #8B5D12;
+  --color-amber-bg: #FBF0D9;
+  --color-amber-border: #E9CC91;
+
+  /* Status: Orange */
+  --color-orange: #B87924;
+  --color-orange-bg: #FAEEDB;
+  --color-orange-border: #E9CC91;
+
+  /* Status: Critical */
+  --color-critical: #B94A48;
+  --color-critical-dark: #893835;
+  --color-critical-bg: #F8E9E7;
+  --color-critical-border: #E4B8B4;
+
+  /* Status: Info */
+  --color-info: #426D5F;
+  --color-info-bg: #E7EFE9;
+  --color-info-border: #B8CBBE;
+
+  /* Neutral */
+  --color-neutral-bg: #F0F1EB;
+  --color-neutral-border: #DEE1D9;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(15, 27, 45, 0.06), 0 1px 2px rgba(15, 27, 45, 0.04);
+  --shadow-md: 0 4px 12px rgba(15, 27, 45, 0.08), 0 2px 4px rgba(15, 27, 45, 0.04);
+  --shadow-lg: 0 12px 32px rgba(15, 27, 45, 0.12), 0 4px 8px rgba(15, 27, 45, 0.06);
+  --shadow-xl: 0 24px 48px rgba(15, 27, 45, 0.16);
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-pill: 999px;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-serif: 'DM Serif Display', Georgia, 'Times New Roman', serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+
+  /* Font sizes */
+  --text-xs: 11px;
+  --text-sm: 13px;
+  --text-base: 14px;
+  --text-md: 15px;
+  --text-lg: 16px;
+  --text-xl: 18px;
+  --text-2xl: 22px;
+  --text-3xl: 28px;
+  --text-4xl: 36px;
+
+  /* Font weights */
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+
+  /* Line heights */
+  --leading-tight: 1.2;
+  --leading-snug: 1.35;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.65;
+
+  /* Transitions */
+  --transition-fast: 120ms ease;
+  --transition-base: 200ms ease;
+  --transition-slow: 350ms ease;
+
+  /* Layout */
+  --sidebar-width: 220px;
+  --header-height: 56px;
+  --content-max-width: 1280px;
+  --content-padding: var(--space-6);
+  --card-gap: var(--space-5);
+}
+
+/* Dark mode not in scope for this version - placeholder only */
