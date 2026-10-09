@@ -1,0 +1,259 @@
+{
+  "meta": {
+    "version": "0.1.0",
+    "generated": "2026-10-08",
+    "how_stage_is_chosen": "By average fish weight, not by age. Age in days depends on temperature, strain and feeding.",
+    "days_model": {
+      "formula": "days = 1000 * (W_end^(1/3) - W_start^(1/3)) / (TGC * average_temperature_C)",
+      "inputs": [
+        "W_start (g)",
+        "W_end (g)",
+        "TGC (calibrate per species and farm)",
+        "average water temperature (C)"
+      ],
+      "hypothetical_example": {
+        "note": "TGC = 1.0 is a made-up number to show the arithmetic. It is NOT a measured tilapia value.",
+        "w_start_g": 20,
+        "w_end_g": 100,
+        "tgc": 1.0,
+        "temp_c": 28,
+        "days": 68.8
+      }
+    }
+  },
+  "species": [
+    {
+      "id": "nile_tilapia",
+      "name": "Nile tilapia",
+      "source_table_ids": [
+        "tilapia_fao_t28"
+      ],
+      "tgc": null,
+      "tgc_status": "must be calibrated from farm sample weights",
+      "stages": [
+        {
+          "stage": "Early fry",
+          "weight_min_g": 0,
+          "weight_max_g": 1,
+          "feed_type": "powder",
+          "feed_size": "0.2-1 mm",
+          "rate_pct_high": 30,
+          "rate_pct_low": 10,
+          "meals_per_day": 8
+        },
+        {
+          "stage": "Fry",
+          "weight_min_g": 1,
+          "weight_max_g": 5,
+          "feed_type": "crumble",
+          "feed_size": "1-1.5 mm",
+          "rate_pct_high": 10,
+          "rate_pct_low": 6,
+          "meals_per_day": 4
+        },
+        {
+          "stage": "Fingerling",
+          "weight_min_g": 5,
+          "weight_max_g": 20,
+          "feed_type": "floating/sinking pellet",
+          "feed_size": "1.5-2 mm",
+          "rate_pct_high": 6,
+          "rate_pct_low": 4,
+          "meals_per_day": 4,
+          "meals_inferred": true
+        },
+        {
+          "stage": "Juvenile",
+          "weight_min_g": 20,
+          "weight_max_g": 100,
+          "feed_type": "floating/sinking pellet",
+          "feed_size": "2 mm",
+          "rate_pct_high": 4,
+          "rate_pct_low": 3,
+          "meals_per_day": 2
+        },
+        {
+          "stage": "Grower",
+          "weight_min_g": 100,
+          "weight_max_g": 250,
+          "feed_type": "floating/sinking pellet",
+          "feed_size": "3 mm",
+          "rate_pct_high": 3,
+          "rate_pct_low": 2,
+          "meals_per_day": 2,
+          "meals_inferred": true
+        },
+        {
+          "stage": "Grower (over 250 g)",
+          "weight_min_g": 250,
+          "weight_max_g": null,
+          "feed_type": "floating/sinking pellet",
+          "feed_size": "4 mm",
+          "rate_pct_high": 2,
+          "rate_pct_low": 1.5,
+          "meals_per_day": 2,
+          "meals_inferred": true
+        }
+      ],
+      "age_days": {
+        "status": "placeholder_unsourced",
+        "warning": "No source found for a universal age by stage. These bands are the illustrative ones from earlier in this project and use a coarser stage split. Replace with your own pond records or the TGC model.",
+        "bands": [
+          {
+            "label": "Larvae/fry (under 1 g)",
+            "days_from": 0,
+            "days_to": 30
+          },
+          {
+            "label": "Fingerling (1-20 g)",
+            "days_from": 30,
+            "days_to": 60
+          },
+          {
+            "label": "Juvenile (20-100 g)",
+            "days_from": 60,
+            "days_to": 120
+          },
+          {
+            "label": "Grower (100-300 g)",
+            "days_from": 120,
+            "days_to": 150
+          },
+          {
+            "label": "Finisher (300 g and over)",
+            "days_from": 150,
+            "days_to": 210
+          }
+        ],
+        "sourced_fact": "FAO states sexual maturity in ponds is reached at 5-6 months, which is a reason to harvest before maturity in mixed populations."
+      }
+    },
+    {
+      "id": "p_monodon",
+      "name": "Marine shrimp (Penaeus monodon)",
+      "source_table_ids": [
+        "shrimp_pmonodon_hanaqua1984"
+      ],
+      "stages": [
+        {
+          "stage": "Up to P30",
+          "age_days_from": 0,
+          "age_days_to": 30,
+          "age_basis": "post-larval days (from source label)",
+          "feed_type": "PL No. 1",
+          "rate_pct_high": 25,
+          "rate_pct_low": 20
+        },
+        {
+          "stage": "P30 to 0.6 g",
+          "weight_max_g": 0.6,
+          "feed_type": "PL No. 2",
+          "rate_pct_high": 20,
+          "rate_pct_low": 16
+        },
+        {
+          "stage": "0.6 to 5 g",
+          "weight_min_g": 0.6,
+          "weight_max_g": 5,
+          "feed_type": "Starter No. 1",
+          "rate_pct_high": 16,
+          "rate_pct_low": 9
+        },
+        {
+          "stage": "5 to 10 g",
+          "weight_min_g": 5,
+          "weight_max_g": 10,
+          "feed_type": "Starter No. 2",
+          "rate_pct_high": 9,
+          "rate_pct_low": 7
+        },
+        {
+          "stage": "10 to 20 g",
+          "weight_min_g": 10,
+          "weight_max_g": 20,
+          "feed_type": "Grower",
+          "rate_pct_high": 7,
+          "rate_pct_low": 5
+        },
+        {
+          "stage": "20 g to market size",
+          "weight_min_g": 20,
+          "weight_max_g": null,
+          "feed_type": "Finisher",
+          "rate_pct_high": 5,
+          "rate_pct_low": 3
+        }
+      ],
+      "meals_per_day": null,
+      "notes": "Source gives no meals per day."
+    },
+    {
+      "id": "carp",
+      "name": "Carp",
+      "source_table_ids": [
+        "carp_coche"
+      ],
+      "stages": [
+        {
+          "stage": "Weight class 1",
+          "weight_min_g": 0,
+          "weight_max_g": 5,
+          "feed_size": "1.5 mm",
+          "note": "source label '>5', likely 'under 5'"
+        },
+        {
+          "stage": "Weight class 2",
+          "weight_min_g": 5,
+          "weight_max_g": 20,
+          "feed_size": "1.5 mm"
+        },
+        {
+          "stage": "Weight class 3",
+          "weight_min_g": 20,
+          "weight_max_g": 50,
+          "feed_size": "2.7 mm"
+        },
+        {
+          "stage": "Weight class 4",
+          "weight_min_g": 50,
+          "weight_max_g": 100,
+          "feed_size": "4 mm"
+        },
+        {
+          "stage": "Weight class 5",
+          "weight_min_g": 100,
+          "weight_max_g": 300,
+          "feed_size": "5 mm"
+        },
+        {
+          "stage": "Weight class 6",
+          "weight_min_g": 300,
+          "weight_max_g": 1000,
+          "feed_size": "5 mm"
+        }
+      ],
+      "notes": "Rates depend on temperature band: see feeding_rates.csv table carp_coche."
+    },
+    {
+      "id": "rainbow_trout",
+      "name": "Rainbow trout",
+      "source_table_ids": [
+        "trout_dry_nrc1981",
+        "trout_commercial_nippon"
+      ],
+      "stages": "Derived from the pellet size column; see feeding_rates.csv. Pellet size by weight: No.1 crumble 0.38-0.77 g, No.2 1.43-2.5 g, No.3 5 g, Nos.3-4 7.7 g, No.4 11.1 g, 2.4 mm 25-33.3 g, 3.4 mm 50-66.7 g, 4.8 mm 100-200 g, 6.4 mm 500 g.",
+      "notes": "Source table gives no stage names or meals per day."
+    },
+    {
+      "id": "channel_catfish",
+      "name": "Channel catfish",
+      "source_table_ids": [
+        "catfish_programme_purina1974",
+        "catfish_floating_foltz1982",
+        "catfish_commercial_westerngrain",
+        "catfish_pond_schedule_piper1982"
+      ],
+      "stages": "Stages in the Purina programme are by length (swim-up, up to 2.5 cm, up to 3.8 cm, 3.8-7.6 cm, 7.6-12.7 cm, 12.7-17.8 cm, 17.8 cm to market, broodstock); see feeding_rates.csv."
+    }
+  ]
+}

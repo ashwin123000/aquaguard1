@@ -1,14 +1,9 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
+import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  css: {
-    postcss: {}, // Explicit empty postcss config to prevent searching parent directory (Desktop/postcss.config.js)
-  },
-  server: {
-    port: 5173,
-    open: false,
-  },
-});
+  plugins: [react(), tailwindcss()],
+})
+

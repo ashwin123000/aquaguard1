@@ -1,0 +1,58 @@
+{
+  "batches": [
+    {
+      "id": "batch_starter_2mm",
+      "brand": "AquaFeed Prime",
+      "feed_type": "Starter Pellets 2.0mm",
+      "pellet_size_mm": 2.0,
+      "protein_pct": 32.0,
+      "stock_on_hand_kg": 150.0,
+      "daily_consumption_kg": 10.0,
+      "days_of_stock_left": 15,
+      "medicated": false,
+      "withdrawal_days_required": 0,
+      "last_medicated_date": null
+    },
+    {
+      "id": "batch_grower_3mm",
+      "brand": "NutriShrimp Supreme",
+      "feed_type": "Grower Pellets 3.0mm",
+      "pellet_size_mm": 3.0,
+      "protein_pct": 28.0,
+      "stock_on_hand_kg": 14.5,
+      "daily_consumption_kg": 15.0,
+      "days_of_stock_left": 0.96,
+      "suggested_alternative_id": "batch_grower_ext_3mm",
+      "medicated": false,
+      "withdrawal_days_required": 0,
+      "last_medicated_date": null
+    },
+    {
+      "id": "batch_grower_ext_3mm",
+      "brand": "AquaFeed Alternative",
+      "feed_type": "Grower Pellets 3.0mm (Backup)",
+      "pellet_size_mm": 3.0,
+      "protein_pct": 28.0,
+      "stock_on_hand_kg": 200.0,
+      "daily_consumption_kg": 15.0,
+      "days_of_stock_left": 13.3,
+      "medicated": false,
+      "withdrawal_days_required": 0,
+      "last_medicated_date": null
+    },
+    {
+      "id": "batch_medicated_oxytet",
+      "brand": "TheraAqua Vet",
+      "feed_type": "Oxytetracycline Medicated 2.5mm",
+      "pellet_size_mm": 2.5,
+      "protein_pct": 30.0,
+      "stock_on_hand_kg": 50.0,
+      "daily_consumption_kg": 5.0,
+      "days_of_stock_left": 10,
+      "medicated": true,
+      "medication_name": "Oxytetracycline HCl",
+      "withdrawal_days_required": 21,
+      "last_medicated_date": "2026-10-01"
+    }
+  ]
+}

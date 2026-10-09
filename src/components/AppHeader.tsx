@@ -1,113 +1,92 @@
-import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import { useStore, useUnreadAlertCount } from '../core/store';
-import { formatDemoDateTime } from '../utils/ids';
-import '../styles/layout.css';
+// src/components/AppHeader.tsx
+import React, { useRef, useState } from 'react';
+import { Sliders, CalendarCheck, Droplets } from 'lucide-react';
+import { aquacultureService } from '../services/aquacultureService';
 
 interface AppHeaderProps {
-  onAlertClick: () => void;
+  onOpenDemoPanel: () => void;
+  onOpenCheckin?: () => void;
 }
 
-const primaryNavigation = [
-  { label: 'Home', to: '/', end: true },
-  { label: 'Our Technology', to: '/#technology' },
-  { label: 'How It Works', to: '/#how-it-works' },
-  { label: 'Ponds', to: '/ponds' },
-  { label: 'Insights', to: '/telemetry' },
-];
+export const AppHeader: React.FC<AppHeaderProps> = ({ onOpenDemoPanel, onOpenCheckin }) => {
+  const farmSetup = aquacultureService.getFarmSetup();
 
-const utilityNavigation = [
-  { label: 'Inventory', to: '/inventory' },
-  { label: 'Feed forecast', to: '/forecast' },
-  { label: 'Growth & biomass', to: '/growth' },
-  { label: 'Feed calculator', to: '/calculator' },
-];
+  // Triple-tap detection
+  const tapTimesRef = useRef<number[]>([]);
+  const [hintText, setHintText] = useState<string | null>(null);
 
-export function AppHeader({ onAlertClick }: AppHeaderProps) {
-  const farmName = useStore(state => state.farmName);
-  const demoClock = useStore(state => state.demoClock);
-  const unreadCount = useUnreadAlertCount();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const handleTitleClick = () => {
+    const now = Date.now();
+    tapTimesRef.current = [...tapTimesRef.current.filter((t) => now - t < 800), now];
+
+    if (tapTimesRef.current.length >= 3) {
+      tapTimesRef.current = [];
+      setHintText('Demo sandbox unlocked!');
+      setTimeout(() => setHintText(null), 2000);
+      onOpenDemoPanel();
+    } else if (tapTimesRef.current.length === 2) {
+      setHintText('Tap once more for demo panel');
+      setTimeout(() => setHintText(null), 1200);
+    }
+  };
 
   return (
-    <header className="app-header" role="banner">
-      <Link to="/" className="header-brand" aria-label="AquaFeed AI home" onClick={() => setMobileMenuOpen(false)}>
-        <span className="header-logo" aria-hidden="true">
-          <svg width="36" height="36" viewBox="0 0 40 40" fill="none">
-            <circle cx="20" cy="20" r="19" stroke="currentColor" strokeWidth="1.5" />
-            <path d="M8 25c4-4 8-4 12 0s8 4 12 0" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-            <path d="M11 29c3-2.5 6-2.5 9 0s6 2.5 9 0" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity=".7" />
-            <path d="M14 15c3.5-4.5 9.5-4.5 13 0-3.5 4.5-9.5 4.5-13 0Z" fill="currentColor" />
-            <circle cx="23" cy="14.5" r="1" fill="#0B3D2E" />
-          </svg>
-        </span>
-        <span className="header-brand-copy">
-          <span className="header-product-name">AquaFeed <span>AI</span></span>
-          <span className="header-tagline">Pond intelligence, in balance</span>
-        </span>
-      </Link>
-
-      <button
-        type="button"
-        className="mobile-menu-toggle"
-        aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-        aria-expanded={mobileMenuOpen}
-        aria-controls="primary-navigation"
-        onClick={() => setMobileMenuOpen(open => !open)}
-      >
-        <span />
-        <span />
-        <span />
-      </button>
-
-      <nav id="primary-navigation" className={`app-nav${mobileMenuOpen ? ' app-nav-open' : ''}`} aria-label="Main navigation">
-        {primaryNavigation.map(item => (
-          <NavLink
-            key={item.label}
-            to={item.to}
-            end={item.end}
-            className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            {item.label}
-          </NavLink>
-        ))}
-        <details className="nav-tools">
-          <summary>Farm tools</summary>
-          <div className="nav-tools-menu">
-            {utilityNavigation.map(item => (
-              <NavLink key={item.to} to={item.to} className="nav-tools-link" onClick={() => setMobileMenuOpen(false)}>
-                {item.label}
-              </NavLink>
-            ))}
-          </div>
-        </details>
-      </nav>
-
-      <div className="header-right">
-        <div className="header-farm-info">
-          <span className="header-farm-name">{farmName}</span>
-          <span className="header-demo-time">{formatDemoDateTime(demoClock)}</span>
-        </div>
-        <span className="demo-badge" title="Application data is simulated for this demonstration">
-          <span className="header-demo-dot" aria-hidden="true" />
-          DEMO ACTIVE
-        </span>
-        <button
-          type="button"
-          className="btn btn-ghost btn-icon bell-wrapper"
-          onClick={onAlertClick}
-          aria-label={`Notifications - ${unreadCount} unread`}
-          id="btn-notifications"
+    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-sky-100 shadow-sm px-4 py-3.5">
+      <div className="flex items-center justify-between">
+        {/* LOGO & TITLE (YOGAZ STYLE WITH FLUID LOTUS / DROP ICON) */}
+        <div
+          onClick={handleTitleClick}
+          className="flex items-center gap-3 cursor-pointer select-none group"
+          title="Triple-tap title to open Demo Sandbox"
         >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-            <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-          </svg>
-          {unreadCount > 0 && <span className="bell-badge" aria-hidden="true">{unreadCount > 99 ? '99+' : unreadCount}</span>}
-        </button>
-        <Link to="/ponds" className="header-dashboard-link">Farmer dashboard <span aria-hidden="true">↗</span></Link>
+          <div className="w-11 h-11 rounded-2xl bg-yogaz-primary text-white flex items-center justify-center shadow-yogaz-pill concentric-ring-blue group-active:scale-95 transition-transform">
+            <Droplets className="w-6 h-6 stroke-[2.5]" />
+          </div>
+          <div>
+            <div className="flex items-center gap-1.5">
+              <h1 className="text-lg font-black text-slate-900 tracking-tight leading-none group-hover:text-[#007cf0] transition-colors">
+                JalDrishti
+              </h1>
+              <span className="text-[9px] font-black text-[#007cf0] bg-sky-50 px-2 py-0.5 rounded-full border border-sky-200">
+                PRO
+              </span>
+            </div>
+            <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#007cf0] block mt-1">
+              Precision Feeding · {farmSetup.pondName || 'Pond A1'}
+            </span>
+          </div>
+        </div>
+
+        {/* QUICK BUTTONS */}
+        <div className="flex items-center gap-2">
+          {onOpenCheckin && (
+            <button
+              onClick={onOpenCheckin}
+              className="w-10 h-10 rounded-full bg-slate-50 hover:bg-sky-50 text-slate-700 hover:text-[#007cf0] border border-slate-200 flex items-center justify-center transition-smooth touch-target shadow-sm"
+              title="Daily Check-in"
+              aria-label="Daily Check-in"
+            >
+              <CalendarCheck className="w-4 h-4" />
+            </button>
+          )}
+
+          <button
+            onClick={onOpenDemoPanel}
+            className="w-10 h-10 rounded-full bg-sky-50 hover:bg-sky-100 text-[#007cf0] border border-sky-200 flex items-center justify-center shadow-sm transition-smooth touch-target"
+            title="Open Demo Panel"
+            aria-label="Demo Panel"
+          >
+            <Sliders className="w-4 h-4" />
+          </button>
+        </div>
       </div>
+
+      {/* TRIPLE-TAP HINT POPUP */}
+      {hintText && (
+        <div className="mt-2 text-center text-[10px] font-black uppercase tracking-wider text-[#007cf0] bg-sky-50 border border-sky-200 rounded-full py-1 animate-in fade-in duration-150">
+          {hintText}
+        </div>
+      )}
     </header>
   );
-}
+};

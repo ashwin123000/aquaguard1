@@ -1,0 +1,43 @@
+table_id,species,system,stage_label,weight_min_g,weight_max_g,weight_basis,length_min_cm,length_max_cm,temp_min_c,temp_max_c,temp_basis,rate_min_pct,rate_max_pct,feed_g_per_fish_day,feed_type,feed_size,meals_per_day,frequency_text,notes,source_id,status
+tilapia_fao_t28,Nile tilapia,"cages, tanks, ponds",Early fry,0,1,range,,,,,,10,30,,powder,0.2-1 mm,8,8/day,"Systems in source: tanks, ponds.",fao_affris_t28,published_reference_unreviewed
+tilapia_fao_t28,Nile tilapia,"cages, tanks, ponds",Fry,1,5,range,,,,,,6,10,,crumble,1-1.5 mm,4,4/day,"Systems in source: cages, tanks, ponds.",fao_affris_t28,published_reference_unreviewed
+tilapia_fao_t28,Nile tilapia,"cages, tanks, ponds",Fingerling,5,20,range,,,,,,4,6,,floating/sinking pellet,1.5-2 mm,4,4/day,"Systems in source: cages, tanks, ponds. Meals per day inferred from merged cells in the PDF.",fao_affris_t28,published_reference_unreviewed
+tilapia_fao_t28,Nile tilapia,"cages, tanks, ponds",Juvenile,20,100,range,,,,,,3,4,,floating/sinking pellet,2 mm,2,2/day,"Systems in source: cages, tanks, ponds.",fao_affris_t28,published_reference_unreviewed
+tilapia_fao_t28,Nile tilapia,"cages, tanks, ponds",Grower,100,250,range,,,,,,2,3,,floating/sinking pellet,3 mm,2,2/day,"Systems in source: cages, tanks, ponds. Meals per day inferred from merged cells in the PDF.",fao_affris_t28,published_reference_unreviewed
+tilapia_fao_t28,Nile tilapia,"cages, tanks, ponds",Grower (over 250 g),250,,range,,,,,,1.5,2,,floating/sinking pellet,4 mm,2,2/day,"Systems in source: cages, tanks, ponds. Meals per day inferred from merged cells in the PDF.",fao_affris_t28,published_reference_unreviewed
+carp_coche,Carp,not stated,,0,5,range,,,,17,range,6,6,,pellet,1.5 mm,,,Source label '>5'; most likely 'under 5' (typo in source),fao_app13,published_reference_unreviewed
+carp_coche,Carp,not stated,,5,20,range,,,,17,range,5,5,,pellet,1.5 mm,,,,fao_app13,published_reference_unreviewed
+carp_coche,Carp,not stated,,20,50,range,,,,17,range,4,4,,pellet,2.7 mm,,,,fao_app13,published_reference_unreviewed
+carp_coche,Carp,not stated,,50,100,range,,,,17,range,3,3,,pellet,4 mm,,,,fao_app13,published_reference_unreviewed
+carp_coche,Carp,not stated,,100,300,range,,,,17,range,2,2,,pellet,5 mm,,,,fao_app13,published_reference_unreviewed
+carp_coche,Carp,not stated,,300,1000,range,,,,17,range,1.5,1.5,,pellet,5 mm,,,,fao_app13,published_reference_unreviewed
+carp_coche,Carp,not stated,,0,5,range,,,17,20,range,7,7,,pellet,1.5 mm,,,Source label '>5'; most likely 'under 5' (typo in source),fao_app13,published_reference_unreviewed
+carp_coche,Carp,not stated,,5,20,range,,,17,20,range,6,6,,pellet,1.5 mm,,,,fao_app13,published_reference_unreviewed
+carp_coche,Carp,not stated,,20,50,range,,,17,20,range,5,5,,pellet,2.7 mm,,,,fao_app13,published_reference_unreviewed
+carp_coche,Carp,not stated,,50,100,range,,,17,20,range,4,4,,pellet,4 mm,,,,fao_app13,published_reference_unreviewed
+carp_coche,Carp,not stated,,100,300,range,,,17,20,range,3,3,,pellet,5 mm,,,,fao_app13,published_reference_unreviewed
+carp_coche,Carp,not stated,,300,1000,range,,,17,20,range,2,2,,pellet,5 mm,,,,fao_app13,published_reference_unreviewed
+carp_coche,Carp,not stated,,0,5,range,,,20,23,range,9,9,,pellet,1.5 mm,,,Source label '>5'; most likely 'under 5' (typo in source),fao_app13,published_reference_unreviewed
+carp_coche,Carp,not stated,,5,20,range,,,20,23,range,7,7,,pellet,1.5 mm,,,,fao_app13,published_reference_unreviewed
+carp_coche,Carp,not stated,,20,50,range,,,20,23,range,6,6,,pellet,2.7 mm,,,,fao_app13,published_reference_unreviewed
+carp_coche,Carp,not stated,,50,100,range,,,20,23,range,5,5,,pellet,4 mm,,,,fao_app13,published_reference_unreviewed
+carp_coche,Carp,not stated,,100,300,range,,,20,23,range,4,4,,pellet,5 mm,,,,fao_app13,published_reference_unreviewed
+carp_coche,Carp,not stated,,300,1000,range,,,20,23,range,3,3,,pellet,5 mm,,,,fao_app13,published_reference_unreviewed
+carp_coche,Carp,not stated,,0,5,range,,,23,26,range,12,12,,pellet,1.5 mm,,,Source label '>5'; most likely 'under 5' (typo in source),fao_app13,published_reference_unreviewed
+carp_coche,Carp,not stated,,5,20,range,,,23,26,range,10,10,,pellet,1.5 mm,,,,fao_app13,published_reference_unreviewed
+carp_coche,Carp,not stated,,20,50,range,,,23,26,range,8,8,,pellet,2.7 mm,,,,fao_app13,published_reference_unreviewed
+carp_coche,Carp,not stated,,50,100,range,,,23,26,range,6,6,,pellet,4 mm,,,,fao_app13,published_reference_unreviewed
+carp_coche,Carp,not stated,,100,300,range,,,23,26,range,5,5,,pellet,5 mm,,,,fao_app13,published_reference_unreviewed
+carp_coche,Carp,not stated,,300,1000,range,,,23,26,range,4,4,,pellet,5 mm,,,,fao_app13,published_reference_unreviewed
+carp_coche,Carp,not stated,,0,5,range,,,26,32,range,19,19,,pellet,1.5 mm,,,Source label '>5'; most likely 'under 5' (typo in source),fao_app13,published_reference_unreviewed
+carp_coche,Carp,not stated,,5,20,range,,,26,32,range,12,12,,pellet,1.5 mm,,,,fao_app13,published_reference_unreviewed
+carp_coche,Carp,not stated,,20,50,range,,,26,32,range,11,11,,pellet,2.7 mm,,,,fao_app13,published_reference_unreviewed
+carp_coche,Carp,not stated,,50,100,range,,,26,32,range,8,8,,pellet,4 mm,,,,fao_app13,published_reference_unreviewed
+carp_coche,Carp,not stated,,100,300,range,,,26,32,range,6,6,,pellet,5 mm,,,,fao_app13,published_reference_unreviewed
+carp_coche,Carp,not stated,,300,1000,range,,,26,32,range,5,5,,pellet,5 mm,,,,fao_app13,published_reference_unreviewed
+shrimp_pmonodon_hanaqua1984,Marine shrimp (Penaeus monodon),not stated,Up to P30,0,0.1,range,,,,,,20,25,,PL No. 1,0.5 mm,,,P30 = post-larval day 30,fao_app13,published_reference_unreviewed
+shrimp_pmonodon_hanaqua1984,Marine shrimp (Penaeus monodon),not stated,P30 to 0.6 g,0.1,0.6,range,,,,,,16,20,,PL No. 2,0.8 mm,,,,fao_app13,published_reference_unreviewed
+shrimp_pmonodon_hanaqua1984,Marine shrimp (Penaeus monodon),not stated,0.6 to 5 g,0.6,5,range,,,,,,9,16,,Starter No. 1,1.2 mm,,,,fao_app13,published_reference_unreviewed
+shrimp_pmonodon_hanaqua1984,Marine shrimp (Penaeus monodon),not stated,5 to 10 g,5,10,range,,,,,,7,9,,Starter No. 2,1.6 mm,,,,fao_app13,published_reference_unreviewed
+shrimp_pmonodon_hanaqua1984,Marine shrimp (Penaeus monodon),not stated,10 to 20 g,10,20,range,,,,,,5,7,,Grower,2.0 mm,,,,fao_app13,published_reference_unreviewed
+shrimp_pmonodon_hanaqua1984,Marine shrimp (Penaeus monodon),not stated,20 g to market size,20,50,range,,,,,,3,5,,Finisher,2.5 mm,,,,fao_app13,published_reference_unreviewed

@@ -1,0 +1,48 @@
+{
+  "meta": {
+    "version": "0.1.0",
+    "rule_policy": "Advice can only reduce or shift the ration, never raise it above the feeding table baseline. Missing or stale data never raises the ration."
+  },
+  "rules": [
+    {
+      "id": "RULE_CLOUDY_WEATHER",
+      "name": "Cloudy Weather Sunlight Depression",
+      "condition": "cloudy_days >= 2",
+      "max_ration_multiplier": 0.85,
+      "time_shift_minutes": -30,
+      "reason": "Reduced sunlight suppresses phytoplankton photosynthesis, impairing morning oxygen generation."
+    },
+    {
+      "id": "RULE_HIGH_TEMP_STRESS",
+      "name": "Thermal Stress Ration Reduction",
+      "condition": "water_temp_c > temp_optimum_max",
+      "max_ration_multiplier": 0.80,
+      "time_shift_minutes": 0,
+      "reason": "Water temperature exceeds species optimum; digestion efficiency declines and biological oxygen demand spikes."
+    },
+    {
+      "id": "RULE_LOW_TEMP_METABOLISM",
+      "name": "Cold Water Metabolic Reduction",
+      "condition": "water_temp_c < temp_optimum_min",
+      "max_ration_multiplier": 0.70,
+      "time_shift_minutes": 60,
+      "reason": "Cold water suppresses fish enzymatic metabolic rate; unconsumed feed decomposes and pollutes pond water."
+    },
+    {
+      "id": "RULE_STALE_SENSOR_DATA",
+      "name": "Stale Telemetry Precautionary Reduction",
+      "condition": "sensor_age_hours >= 2.0",
+      "max_ration_multiplier": 0.90,
+      "time_shift_minutes": 0,
+      "reason": "Sensor readings are stale or missing; precautionary reduction applied to prevent undetected hypoxia mortalities."
+    },
+    {
+      "id": "RULE_AMMONIA_ELEVATED",
+      "name": "Elevated Ammonia Water Quality Emergency",
+      "condition": "ammonia_ppm > 0.8",
+      "max_ration_multiplier": 0.50,
+      "time_shift_minutes": 0,
+      "reason": "Elevated toxic un-ionized ammonia detected; feeding creates organic waste load and must be curtailed."
+    }
+  ]
+}

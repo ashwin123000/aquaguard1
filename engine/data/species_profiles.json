@@ -1,0 +1,323 @@
+{
+  "meta": {
+    "version": "0.1.0",
+    "generated": "2026-10-08",
+    "status_values": {
+      "placeholder": "Illustrative value with no cited source. Must be reviewed before real feeding decisions.",
+      "published_reference_unreviewed": "Transcribed from published table. Not reviewed by an aquaculture expert.",
+      "reviewed": "Reviewed by an aquaculture expert with cited source.",
+      "verified": "Field verified and approved for production."
+    },
+    "how_stage_is_chosen": "By average fish weight, not by age. Age in days depends on temperature, strain, and feeding.",
+    "days_model": {
+      "formula": "days = 1000 * (W_end^(1/3) - W_start^(1/3)) / (TGC * average_temperature_C)",
+      "inputs": [
+        "W_start (g)",
+        "W_end (g)",
+        "TGC (calibrated per pond and farm)",
+        "average water temperature (C)"
+      ],
+      "tgc_recalibration_formula": "TGC = 1000 * (W_end^(1/3) - W_start^(1/3)) / sum_daily_temperature_C"
+    }
+  },
+  "species": [
+    {
+      "id": "nile_tilapia",
+      "name": "Nile tilapia",
+      "scientific_name": "Oreochromis niloticus",
+      "source_table_ids": ["tilapia_fao_t28", "tilapia_marek1975", "tilapia_pullin1982"],
+      "default_table_id": "tilapia_fao_t28",
+      "oxygen": {
+        "stop_level_mg_l": 3.0,
+        "stop_level_status": "placeholder",
+        "stop_level_source": null,
+        "full_feeding_level_mg_l": 5.0,
+        "full_feeding_status": "reviewed",
+        "full_feeding_source": "Nile tilapia yield-gap review"
+      },
+      "temperature_c": {
+        "min": 20.0,
+        "optimum_range": [27.0, 32.0],
+        "optimum_status": "reviewed",
+        "optimum_source": "Nile tilapia yield-gap review",
+        "max": 36.0,
+        "status": "reviewed"
+      },
+      "tgc_default": 1.0,
+      "tgc_status": "placeholder",
+      "tgc_note": "TGC must be calibrated from weekly farm sample weighings",
+      "expected_fcr": 1.35,
+      "stages": [
+        {
+          "stage": "Early fry",
+          "weight_min_g": 0.0,
+          "weight_max_g": 1.0,
+          "feed_type": "powder",
+          "feed_size": "0.2-1 mm",
+          "pellet_size_mm": 0.6,
+          "rate_pct_high": 30.0,
+          "rate_pct_low": 10.0,
+          "meals_per_day": 8,
+          "meal_times": ["06:00 AM", "08:00 AM", "10:00 AM", "12:00 PM", "02:00 PM", "04:00 PM", "06:00 PM", "08:00 PM"]
+        },
+        {
+          "stage": "Fry",
+          "weight_min_g": 1.0,
+          "weight_max_g": 5.0,
+          "feed_type": "crumble",
+          "feed_size": "1-1.5 mm",
+          "pellet_size_mm": 1.2,
+          "rate_pct_high": 10.0,
+          "rate_pct_low": 6.0,
+          "meals_per_day": 4,
+          "meal_times": ["07:00 AM", "10:30 AM", "02:30 PM", "05:30 PM"]
+        },
+        {
+          "stage": "Fingerling",
+          "weight_min_g": 5.0,
+          "weight_max_g": 20.0,
+          "feed_type": "floating/sinking pellet",
+          "feed_size": "1.5-2 mm",
+          "pellet_size_mm": 2.0,
+          "rate_pct_high": 6.0,
+          "rate_pct_low": 4.0,
+          "meals_per_day": 4,
+          "meals_inferred": true,
+          "meal_times": ["07:30 AM", "11:00 AM", "02:30 PM", "05:30 PM"]
+        },
+        {
+          "stage": "Juvenile",
+          "weight_min_g": 20.0,
+          "weight_max_g": 100.0,
+          "feed_type": "floating/sinking pellet",
+          "feed_size": "2 mm",
+          "pellet_size_mm": 2.0,
+          "rate_pct_high": 4.0,
+          "rate_pct_low": 3.0,
+          "meals_per_day": 2,
+          "meal_times": ["08:30 AM", "04:30 PM"]
+        },
+        {
+          "stage": "Grower",
+          "weight_min_g": 100.0,
+          "weight_max_g": 250.0,
+          "feed_type": "floating/sinking pellet",
+          "feed_size": "3 mm",
+          "pellet_size_mm": 3.0,
+          "rate_pct_high": 3.0,
+          "rate_pct_low": 2.0,
+          "meals_per_day": 2,
+          "meals_inferred": true,
+          "meal_times": ["09:00 AM", "04:00 PM"]
+        },
+        {
+          "stage": "Grower (over 250 g)",
+          "weight_min_g": 250.0,
+          "weight_max_g": null,
+          "feed_type": "floating/sinking pellet",
+          "feed_size": "4 mm",
+          "pellet_size_mm": 4.0,
+          "rate_pct_high": 2.0,
+          "rate_pct_low": 1.5,
+          "meals_per_day": 2,
+          "meals_inferred": true,
+          "meal_times": ["09:00 AM", "04:00 PM"]
+        }
+      ]
+    },
+    {
+      "id": "p_monodon",
+      "name": "Marine shrimp (Penaeus monodon)",
+      "scientific_name": "Penaeus monodon",
+      "source_table_ids": ["shrimp_pmonodon_hanaqua1984"],
+      "default_table_id": "shrimp_pmonodon_hanaqua1984",
+      "oxygen": {
+        "stop_level_mg_l": 3.5,
+        "stop_level_status": "placeholder",
+        "stop_level_source": null,
+        "full_feeding_level_mg_l": 5.5,
+        "full_feeding_status": "placeholder",
+        "full_feeding_source": null
+      },
+      "temperature_c": {
+        "min": 24.0,
+        "optimum_range": [28.0, 32.0],
+        "optimum_status": "placeholder",
+        "optimum_source": null,
+        "max": 35.0,
+        "status": "placeholder"
+      },
+      "tgc_default": 0.8,
+      "tgc_status": "placeholder",
+      "expected_fcr": 1.4,
+      "stages": [
+        {
+          "stage": "Up to P30",
+          "weight_min_g": 0.0,
+          "weight_max_g": 0.1,
+          "feed_type": "PL No. 1",
+          "pellet_size_mm": 0.5,
+          "rate_pct_high": 25.0,
+          "rate_pct_low": 20.0,
+          "meals_per_day": 4,
+          "meal_times": ["06:00 AM", "11:00 AM", "04:00 PM", "10:00 PM"]
+        },
+        {
+          "stage": "P30 to 0.6 g",
+          "weight_min_g": 0.1,
+          "weight_max_g": 0.6,
+          "feed_type": "PL No. 2",
+          "pellet_size_mm": 0.8,
+          "rate_pct_high": 20.0,
+          "rate_pct_low": 16.0,
+          "meals_per_day": 4,
+          "meal_times": ["06:00 AM", "11:00 AM", "04:00 PM", "10:00 PM"]
+        },
+        {
+          "stage": "0.6 to 5 g",
+          "weight_min_g": 0.6,
+          "weight_max_g": 5.0,
+          "feed_type": "Starter No. 1",
+          "pellet_size_mm": 1.2,
+          "rate_pct_high": 16.0,
+          "rate_pct_low": 9.0,
+          "meals_per_day": 4,
+          "meal_times": ["06:00 AM", "11:00 AM", "04:00 PM", "10:00 PM"]
+        },
+        {
+          "stage": "5 to 10 g",
+          "weight_min_g": 5.0,
+          "weight_max_g": 10.0,
+          "feed_type": "Starter No. 2",
+          "pellet_size_mm": 1.6,
+          "rate_pct_high": 9.0,
+          "rate_pct_low": 7.0,
+          "meals_per_day": 4,
+          "meal_times": ["06:00 AM", "11:00 AM", "04:00 PM", "10:00 PM"]
+        },
+        {
+          "stage": "10 to 20 g",
+          "weight_min_g": 10.0,
+          "weight_max_g": 20.0,
+          "feed_type": "Grower",
+          "pellet_size_mm": 2.0,
+          "rate_pct_high": 7.0,
+          "rate_pct_low": 5.0,
+          "meals_per_day": 3,
+          "meal_times": ["06:00 AM", "02:00 PM", "09:00 PM"]
+        },
+        {
+          "stage": "20 g to market size",
+          "weight_min_g": 20.0,
+          "weight_max_g": null,
+          "feed_type": "Finisher",
+          "pellet_size_mm": 2.5,
+          "rate_pct_high": 5.0,
+          "rate_pct_low": 3.0,
+          "meals_per_day": 3,
+          "meal_times": ["06:00 AM", "02:00 PM", "09:00 PM"]
+        }
+      ]
+    },
+    {
+      "id": "carp",
+      "name": "Common carp",
+      "scientific_name": "Cyprinus carpio",
+      "source_table_ids": ["carp_coche"],
+      "default_table_id": "carp_coche",
+      "oxygen": {
+        "stop_level_mg_l": 2.5,
+        "stop_level_status": "placeholder",
+        "stop_level_source": null,
+        "full_feeding_level_mg_l": 4.5,
+        "full_feeding_status": "placeholder",
+        "full_feeding_source": null
+      },
+      "temperature_c": {
+        "min": 15.0,
+        "optimum_range": [22.0, 28.0],
+        "optimum_status": "placeholder",
+        "optimum_source": null,
+        "max": 32.0,
+        "status": "placeholder"
+      },
+      "tgc_default": 0.9,
+      "tgc_status": "placeholder",
+      "expected_fcr": 1.45,
+      "stages": [
+        {
+          "stage": "Fry (under 5g)",
+          "weight_min_g": 0.0,
+          "weight_max_g": 5.0,
+          "feed_type": "pellet",
+          "feed_size": "1.5 mm",
+          "pellet_size_mm": 1.5,
+          "rate_pct_high": 19.0,
+          "rate_pct_low": 6.0,
+          "meals_per_day": 4,
+          "meal_times": ["07:00 AM", "11:00 AM", "02:30 PM", "06:00 PM"]
+        },
+        {
+          "stage": "Fingerling (5-20g)",
+          "weight_min_g": 5.0,
+          "weight_max_g": 20.0,
+          "feed_type": "pellet",
+          "feed_size": "1.5 mm",
+          "pellet_size_mm": 1.5,
+          "rate_pct_high": 12.0,
+          "rate_pct_low": 5.0,
+          "meals_per_day": 3,
+          "meal_times": ["08:00 AM", "01:00 PM", "05:30 PM"]
+        },
+        {
+          "stage": "Juvenile (20-50g)",
+          "weight_min_g": 20.0,
+          "weight_max_g": 50.0,
+          "feed_type": "pellet",
+          "feed_size": "2.7 mm",
+          "pellet_size_mm": 2.7,
+          "rate_pct_high": 11.0,
+          "rate_pct_low": 4.0,
+          "meals_per_day": 3,
+          "meal_times": ["08:00 AM", "01:00 PM", "05:30 PM"]
+        },
+        {
+          "stage": "Small grower (50-100g)",
+          "weight_min_g": 50.0,
+          "weight_max_g": 100.0,
+          "feed_type": "pellet",
+          "feed_size": "4 mm",
+          "pellet_size_mm": 4.0,
+          "rate_pct_high": 8.0,
+          "rate_pct_low": 3.0,
+          "meals_per_day": 2,
+          "meal_times": ["09:00 AM", "04:30 PM"]
+        },
+        {
+          "stage": "Grower (100-300g)",
+          "weight_min_g": 100.0,
+          "weight_max_g": 300.0,
+          "feed_type": "pellet",
+          "feed_size": "5 mm",
+          "pellet_size_mm": 5.0,
+          "rate_pct_high": 6.0,
+          "rate_pct_low": 2.0,
+          "meals_per_day": 2,
+          "meal_times": ["09:00 AM", "04:30 PM"]
+        },
+        {
+          "stage": "Market (over 300g)",
+          "weight_min_g": 300.0,
+          "weight_max_g": null,
+          "feed_type": "pellet",
+          "feed_size": "5 mm",
+          "pellet_size_mm": 5.0,
+          "rate_pct_high": 5.0,
+          "rate_pct_low": 1.5,
+          "meals_per_day": 2,
+          "meal_times": ["09:00 AM", "04:30 PM"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+Pond_ID,Species,Stocked_Count,Deaths_Today,Effective_Count,Avg_Weight_g,Biomass_kg,Stage_Name,Pellet_Size_mm,Water_Temp_C,DO_mg_L,Baseline_Rate_pct,Baseline_Ration_kg,Adjusted_Ration_kg,Approved_Total_kg,Skipped_Total_kg,Days_to_Next_Stage,Oxygen_Status,Applied_Rules_Count,Hierarchy_Winner
+POND-A1 (Baseline Fingerling),nile_tilapia,15000,12,14988,18.0,269.78,Fingerling,2.0,28.0,5.4,4.27,11.52,11.52,11.52,0,3.3,Safe,0,Calculated Ration
+POND-A2 (Low DO Safety Stop),nile_tilapia,12000,5,11995,85.0,1019.58,Juvenile,2.0,30.0,2.6,3.19,32.52,32.52,0.0,32.52,8.2,Stop,0,Safety Stop (DO < 3.0 mg/L)
+POND-B1 (Borderline DO Caution),nile_tilapia,18000,2,17998,38.0,683.92,Juvenile,2.0,28.5,4.1,3.77,25.78,25.78,18.04,0,44.9,Reduced,0,Calculated Ration
+POND-B2 (Thermal Stress >32C),nile_tilapia,14000,0,14000,120.0,1680.0,Grower,3.0,33.5,5.2,2.87,48.22,38.58,38.58,0,40.8,Safe,1,Environmental Water/Weather Limits
+POND-C1 (Cloudy 3 Days + Stale Data),nile_tilapia,20000,8,19992,55.0,1099.56,Juvenile,2.0,27.0,5.1,3.56,39.14,29.94,29.94,0,31.1,Safe,2,Environmental Water/Weather Limits
+POND-C2 (Leftovers Down 20%),nile_tilapia,15000,1,14999,42.0,629.96,Juvenile,2.0,28.0,5.5,3.73,23.5,18.8,18.8,0,41.6,Safe,1,Farmer Leftover Feedback
+POND-D1 (Clean 3 Days + Table Ceiling),nile_tilapia,15000,0,15000,42.0,630.0,Juvenile,2.0,28.0,5.5,3.73,23.5,23.5,23.5,0,41.6,Safe,1,Environmental Water/Weather Limits
